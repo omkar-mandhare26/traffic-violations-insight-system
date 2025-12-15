@@ -2,7 +2,7 @@ from .coordinates import clean_latitude, clean_longitude
 
 def format_and_clean_geolocation(val):
     try:
-        # Getting values of latitude and longitude from tuple as a string
+        # Extracting latitude and longitude from a tuple string
         lat, lon = str(val).strip("()").split(",")
         geo_lat = clean_latitude(round(float(lat), 6))
         geo_lon = clean_longitude(round(float(lon), 6))
@@ -24,3 +24,8 @@ def validate_geolocation(row):
     if longitude != geo_lon: geo_lon = longitude
 
     return (geo_lat, geo_lon)
+
+# Converting tuple to string for Database
+def geo_to_string(val):
+    lat, lon = val
+    return f"{lat},{lon}"
