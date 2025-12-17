@@ -15,17 +15,21 @@ def analysis_question(st,engine):
     """
     result = pd.read_sql(query,engine)
     capitalize_column(result)
-    
+
+    result["Description_short"] = result["Description"].apply(
+        lambda x: " ".join(x.split()[:5]) + "......"
+    )
+
     fig = px.treemap(
         result,
-        path=['Description'],
+        path=['Description_short'],
         values="Count",
-        hover_data=['Description'],
+        hover_data=['Description_short'],
         title="Top 10 common violations"
     )
 
     st.header("1. What are the most common violations?")
-    st.table(result)
+    st.table(result[["Description", "Count"]])
     st.plotly_chart(fig, width="stretch")
     st.write("---")
 

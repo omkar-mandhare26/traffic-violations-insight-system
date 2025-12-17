@@ -1,4 +1,4 @@
-from components import analysis_question
+from components import dashboard, analysis_question
 from utils.db import get_engine
 import streamlit as st
 
@@ -19,5 +19,5 @@ option = st.sidebar.radio(
     "Check Out", ("Dashboard", "Analysis")
 )
 
-if option == "Dashboard": st.write("Yet to build")
+if option == "Dashboard": dashboard(st,engine)
 elif option == "Analysis": analysis_question(st,engine)
