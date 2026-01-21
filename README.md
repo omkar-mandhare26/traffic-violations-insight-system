@@ -124,10 +124,3 @@ http://localhost:8501
 You can now explore traffic violation trends, patterns, and insights through the visual analytics interface.
 
 ---
-
-If you want, next I can:
-
-* Add a **Project Architecture / File Responsibilities** section
-* Add a **Database Schema Overview**
-* Add a **Screenshots / Dashboard Features** section
-* Make this README **resume-ready or portfolio-grade**
